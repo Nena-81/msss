@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>رسالة خاصة</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap');
+
+body {
+    margin: 0;
+    height: 100vh;
+    font-family: 'Cairo', sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.card {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(12px);
+    padding: 40px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 420px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+
+h1 {
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.9;
+    opacity: 1;
+    transition: opacity 0.4s ease;
+}
+
+p.fade {
+    opacity: 0;
+}
+
+button {
+    margin-top: 25px;
+    padding: 12px 28px;
+    font-size: 15px;
+    border: none;
+    border-radius: 30px;
+    background: #ffffff;
+    color: #203a43;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    background: #e0e0e0;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>إلى زهراء</h1>
+    <p id="text">
+        مو كل خطأ ينقاس بحجمه،  
+        بعض الأخطاء تنقاس بالشخص اللي جرحتَه.
+    </p>
+
+    <button id="actionBtn" onclick="next()">تابعي</button>
+</div>
+
+<script>
+let step = 0;
+const messages = [
+    "مو كل خطأ ينقاس بحجمه، بعض الأخطاء تنقاس بالشخص اللي جرحتَه.",
+    "زهراء، أنا ما أتهرب من الغلط، وأعترف إني قصّرت وياچ.",
+    "يمكن ما عرفت أعبّر صح، بس كنت صادق بكل إحساس.",
+    "وجودچ بحياتي مو شي أعتبره مضمون.",
+    "إذا تحبين نحچي بهدوء، أنا موجود."
+];
+
+function next() {
+    const text = document.getElementById("text");
+    text.classList.add("fade");
+
+    setTimeout(() => {
+        step++;
+
+        if (step < messages.length) {
+            text.innerText = messages[step];
+        } else {
+            text.innerText = "زهراء، إذا تحسين نحچي… هذا مكاني 🤍";
+            const btn = document.getElementById("actionBtn");
+            btn.innerText = "راسليني على إنستغرام";
+            btn.onclick = () => {
+                window.location.href = "https://instagram.com/zw_k";
+            };
+        }
+
+        text.classList.remove("fade");
+    }, 400);
+}
+</script>
+
+</body>
+</html>
