@@ -3,64 +3,99 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>رسالة خاصة</title>
+<title>رسالة</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap');
-
-body {
-    margin: 0;
-    height: 100vh;
-    font-family: 'Cairo', sans-serif;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
+:root{
+  --bg:#0b1220;
+  --card:#121a2f;
+  --text:#e6eaf2;
+  --muted:#9aa3b2;
+  --accent:#4da3ff;
 }
 
-.card {
-    background: rgba(255,255,255,0.08);
-    backdrop-filter: blur(12px);
-    padding: 40px;
-    border-radius: 20px;
-    width: 90%;
-    max-width: 420px;
-    text-align: center;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+*{
+  box-sizing:border-box;
 }
 
-h1 {
-    font-weight: 600;
-    margin-bottom: 20px;
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:radial-gradient(circle at top, #14203b, var(--bg));
+  font-family:'Cairo',sans-serif;
+  color:var(--text);
 }
 
-p {
-    font-size: 16px;
-    line-height: 1.9;
-    opacity: 1;
-    transition: opacity 0.4s ease;
+.card{
+  width:100%;
+  max-width:520px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:20px;
+  padding:45px 40px;
+  box-shadow:0 30px 80px rgba(0,0,0,0.45);
+  animation:fadeUp 1.2s ease;
 }
 
-p.fade {
-    opacity: 0;
+h1{
+  font-weight:600;
+  font-size:22px;
+  margin-bottom:25px;
+  letter-spacing:0.5px;
 }
 
-button {
-    margin-top: 25px;
-    padding: 12px 28px;
-    font-size: 15px;
-    border: none;
-    border-radius: 30px;
-    background: #ffffff;
-    color: #203a43;
-    cursor: pointer;
-    transition: 0.3s;
+p{
+  line-height:1.9;
+  font-size:15.5px;
+  color:var(--muted);
+  margin-bottom:18px;
 }
 
-button:hover {
-    transform: translateY(-2px);
-    background: #e0e0e0;
+p strong{
+  color:var(--text);
+  font-weight:500;
+}
+
+.divider{
+  height:1px;
+  background:linear-gradient(to right, transparent, rgba(255,255,255,0.15), transparent);
+  margin:30px 0;
+}
+
+.btn{
+  display:inline-block;
+  margin-top:10px;
+  padding:12px 30px;
+  border-radius:30px;
+  background:linear-gradient(135deg, var(--accent), #78c0ff);
+  color:#fff;
+  text-decoration:none;
+  font-size:14px;
+  font-weight:600;
+  box-shadow:0 12px 30px rgba(77,163,255,0.35);
+  transition:all 0.35s ease;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 18px 40px rgba(77,163,255,0.45);
+}
+
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(30px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+.footer{
+  margin-top:35px;
+  font-size:13px;
+  color:#7f8aa3;
+  text-align:left;
 }
 </style>
 </head>
@@ -68,47 +103,36 @@ button:hover {
 <body>
 
 <div class="card">
-    <h1>إلى زهراء</h1>
-    <p id="text">
-        مو كل خطأ ينقاس بحجمه،  
-        بعض الأخطاء تنقاس بالشخص اللي جرحتَه.
-    </p>
+  <h1>رسالة هادئة</h1>
 
-    <button id="actionBtn" onclick="next()">تابعي</button>
+  <p>
+    يمكن ما أعرف أرتّب كل اللي داخلي بالكلام،  
+    بس أعرف إنو التعب مو ضعف،  
+    أحياناً هو نتيجة إنسان حاول أكثر من طاقته.
+  </p>
+
+  <p>
+    <strong>أنا مو زعلان منك،</strong>  
+    ولا شايل شي بقلبي،  
+    كل اللي صار إنو روحي تعبت شوي  
+    واحتاجت توقف حتى تلتقط أنفاسها.
+  </p>
+
+  <p>
+    أحبك،  
+    مو لأن كل شيء سهل،  
+    بل لأن وجودك يعطيني سبب أكمّل  
+    حتى وأنا مو بأفضل أيامي.
+  </p>
+
+  <div class="divider"></div>
+
+  <a class="btn" href="https://instagram.com/zw_k">نحچي بهدوء</a>
+
+  <div class="footer">
+    — مصطفى
+  </div>
 </div>
-
-<script>
-let step = 0;
-const messages = [
-    "مو كل خطأ ينقاس بحجمه، بعض الأخطاء تنقاس بالشخص اللي جرحتَه.",
-    "زهراء، أنا ما أتهرب من الغلط، وأعترف إني قصّرت وياچ.",
-    "يمكن ما عرفت أعبّر صح، بس كنت صادق بكل إحساس.",
-    "وجودچ بحياتي مو شي أعتبره مضمون.",
-    "إذا تحبين نحچي بهدوء، أنا موجود."
-];
-
-function next() {
-    const text = document.getElementById("text");
-    text.classList.add("fade");
-
-    setTimeout(() => {
-        step++;
-
-        if (step < messages.length) {
-            text.innerText = messages[step];
-        } else {
-            text.innerText = "زهراء، إذا تحسين نحچي… هذا مكاني 🤍";
-            const btn = document.getElementById("actionBtn");
-            btn.innerText = "راسليني على إنستغرام";
-            btn.onclick = () => {
-                window.location.href = "https://instagram.com/zw_k";
-            };
-        }
-
-        text.classList.remove("fade");
-    }, 400);
-}
-</script>
 
 </body>
 </html>
